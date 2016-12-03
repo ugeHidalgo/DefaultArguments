@@ -36,9 +36,13 @@ describe('Kata', function() {
 
     it('defaultArguments should pass kata examples 2', function() {
       var newAddFunction = defaultArguments(add,{b:9});      
-      expect(newAddFunction(10)).toEqual(19);
-      expect(newAddFunction(10,5)).toEqual(15);
+      var newAddFunction = defaultArguments(newAddFunction,{b:3});      
+      expect(newAddFunction(10)).toEqual(13);
     });
 
+    it('defaultArguments should pass kata examples 3', function() {
+      var newAddFunction = defaultArguments(add,{b:3,a:2});      
+      expect(newAddFunction(10)).toEqual(13);
+    });
 
 });

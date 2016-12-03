@@ -11,7 +11,18 @@ function defaultArguments(func) {
   }   
 
   return function() {
-      var funcArgs = args.concat(Array.prototype.slice.call(arguments,0));
-      return func.apply(this,funcArgs);
+      var funcArgs = [];
+      switch (arguments.length) {
+          case 0:
+                return func.apply(this,args);
+    
+          case 1:
+                funcArgs.push(args[0]);
+                funcArgs.push(arguments[0]);
+                return func.apply(this,funcArgs);
+
+          default:
+                return func.apply(this,arguments);
+      }
   }
 }
