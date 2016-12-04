@@ -3,6 +3,11 @@ describe('Kata', function() {
 
     beforeEach(function() {  
       add = function(a,b) { return a+b; } 
+      add2 = function(x,y) { return x+y; }
+      addMore = function ( a,b,c,d,e ) { return a+b+c+d+e; }
+      f1 = function (a,b,c) { return a - b*c; }
+      f2 = function (b,a,c) { return a - b*c; }
+      timesFive = function () { var five = 5; return function (a) { return five * x; }; }();
     });
 
     it('should be able to test', function() {
@@ -40,9 +45,8 @@ describe('Kata', function() {
       expect(newAddFunction(10)).toEqual(13);
     });
 
-    it('defaultArguments should pass kata examples 3', function() {
-      var newAddFunction = defaultArguments(add,{b:3,a:2});      
-      expect(newAddFunction(10)).toEqual(13);
+    it('defaultArguments should pass kata examples for function add2', function() {
+      var add2_ = defaultArguments(add2,{b:9});      
+      expect(add2_(10)).toEqual(19);
     });
-
 });
